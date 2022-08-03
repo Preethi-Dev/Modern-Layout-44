@@ -1,5 +1,157 @@
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Fonts */
+@font-face {
+  font-family: "Jufatti";
+  src: url("./assets/fonts/Jufatti.ttf");
+}
+
 /* Variables */
+:root {
+  --primary: #1c1c1c;
+  --secondary: #db6161;
+  --bg: #faf9f7;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+body * {
+  font-family: "Jufatti";
+  font-style: normal;
+  font-weight: 900;
+  line-height: 140%;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+header * {
+  font-size: 0.875rem;
+}
+
+main .text p {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+main .text p:last-child {
+  letter-spacing: -0.04em;
+  color: var(--secondary);
+}
+
+main .sub-text p {
+  padding: 2rem;
+}
+
 /* Mobile Styles */
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  margin-top: 100px;
+}
+
+main > * {
+  grid-column: 1 / -1;
+}
+
+main .text p:last-child {
+  font-size: 6.5rem;
+}
+
+main .sub-text {
+  text-align: center;
+}
+
+/* Small Tablet Styles */
+@media screen and (min-width: 500px) {
+  main .text p:last-child {
+    font-size: 8.5rem;
+  }
+}
+
+/* Large Tablet Styles */
+@media screen and (min-width: 790px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  main .text p:last-child {
+    font-size: 15.5rem;
+  }
+
+  main .sub-text {
+    justify-self: center;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  main .sub-text p {
+    text-align: right;
+  }
+}
+
+/* Laptop Styles */
+@media screen and (min-width: 1000px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 200px;
+  }
+
+  main .text {
+    grid-row: 1;
+  }
+
+  main .text p:last-child {
+    font-size: 20.5rem;
+  }
+
+  main .sub-text {
+    grid-row: 1 / span 2;
+    grid-column-end: -2;
+    place-self: end;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1400px) {
+  main {
+    grid-template-rows: auto 100px;
+
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main .text p:last-child {
+    font-size: 28.5rem;
+  }
+}
